@@ -1,0 +1,1 @@
+import{_ as e}from"./entry/index-WJ_LNOed.js";import{U as o,V as r}from"./vue-Bm8JtdxJ.js";import"./antd-DVqza5m0.js";const t={};function c(n,a){return o(),r("div",null,"about ")}const i=e(t,[["render",c]]);export{i as default};
