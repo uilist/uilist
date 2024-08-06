@@ -3,7 +3,6 @@
     <slot name="title"></slot>
     {{ !$slots.title ? title : '' }}
   </BasicTitle>
-
   <div :class="[prefixCls, `${prefixCls}--detail`]" v-else>
     <span :class="`${prefixCls}__twrap`">
       <span @click="handleClose" v-if="showDetailBack">
