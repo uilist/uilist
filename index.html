@@ -9,7 +9,12 @@
       content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0"
     />
     <title><%= VITE_GLOB_APP_TITLE %></title>
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <link rel="icon" href="<%= BASE_URL %>favicon-16x16.png" />
+    <link rel="icon" href="<%= BASE_URL %>favicon-24x24.png" />
+    <link rel="icon" href="<%= BASE_URL %>favicon-32x32.png" />
+    <link rel="icon" href="<%= BASE_URL %>favicon-64x64.png" />
+    <link rel="icon" href="<%= BASE_URL %>favicon-96x96.png" />
+    <link rel="icon" href="<%= BASE_URL %>favicon-144x144.png" />
   </head>
   <body>
     <div id="app">
@@ -142,5 +147,12 @@
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
   </body>
 </html>

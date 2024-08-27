@@ -33,7 +33,7 @@ export function checkStatus(
       }
       break;
     case 403:
-      errMessage = '用户得到授权，但是访问是被禁止的。!';
+      errMessage = '用户得到授权，但是访问是被禁止的!';
       break;
     // 404请求不存在
     case 404:
@@ -67,7 +67,7 @@ export function checkStatus(
   }
 
   if (errMessage) {
-    if (errorMessageMode === 'modal') {
+    if (errorMessageMode === 'modal' && status !== 403) {
       createErrorModal({ title: '错误提示', content: errMessage });
     } else if (errorMessageMode === 'message') {
       error({ content: errMessage, key: `错误码：${status}` });
