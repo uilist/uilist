@@ -1,1 +1,0 @@
-import{_ as e}from"./entry/index-Cu4ZNM-V.js";import{U as r,V as o}from"./vue-BS-CQGJd.js";import"./antd-lzfbcK9F.js";const t={};function c(n,s){return r(),o("div",null," 1. ")}const i=e(t,[["render",c]]);export{i as default};
