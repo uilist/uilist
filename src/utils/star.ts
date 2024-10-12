@@ -1,9 +1,10 @@
 import { defHttp } from '@/utils/http/axios';
+import axios, { CancelTokenSource } from 'axios';
 
 // 获取GitHub仓库的Star数量
 
-const cache = {};
-export function getRepoStarCount(githubUrl) {
+const cache: Record<string, any> = {}; // 缓存对象
+export function getRepoStarCount(githubUrl: string, cancelToken?: CancelTokenSource) {
   const match = githubUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
   if (!match) {
     return Promise.reject(new Error('Invalid GitHub URL'));
@@ -21,6 +22,7 @@ export function getRepoStarCount(githubUrl) {
   return defHttp
     .get({
       url: apiUrl,
+      cancelToken: cancelToken?.token, // 传递取消令牌
     })
     .then((data) => {
       // 更新缓存
@@ -28,7 +30,11 @@ export function getRepoStarCount(githubUrl) {
       return data;
     })
     .catch((error) => {
-      console.error('Error fetching star count:', error);
+      if (axios.isCancel(error)) {
+        console.log('Request canceled:', error.message);
+      } else {
+        console.error('Error fetching star count:', error);
+      }
       return null;
     });
 }

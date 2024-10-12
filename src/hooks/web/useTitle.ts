@@ -16,6 +16,7 @@ export function useTitle() {
   const localeStore = useLocaleStore();
 
   const pageTitle = usePageTitle();
+  console.log('pageTitle', pageTitle);
 
   watch(
     [() => currentRoute.value.path, () => localeStore.getLocale],
@@ -28,6 +29,7 @@ export function useTitle() {
 
       const tTitle = t(route?.meta?.title as string);
       pageTitle.value = tTitle ? ` ${tTitle} - ${title} ` : `${title}`;
+      console.log('watchTitle', pageTitle);
     },
     { immediate: true },
   );

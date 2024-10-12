@@ -38,7 +38,6 @@ export function getAppEnvConfig() {
     VITE_JWT_APPID,
     VITE_SIGN_SECRET,
   } = ENV;
-  console.log('ENV', ENV);
   let { VITE_GLOB_API_URL } = ENV;
   if (localStorage.getItem(API_ADDRESS)) {
     const address = JSON.parse(localStorage.getItem(API_ADDRESS) || '{}');

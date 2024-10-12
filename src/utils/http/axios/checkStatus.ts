@@ -17,7 +17,7 @@ export function checkStatus(
 ): void {
   const userStore = useUserStoreWithOut();
   let errMessage = '';
-
+  console.log('status', status);
   switch (status) {
     case 400:
       errMessage = `${msg}`;
@@ -66,8 +66,9 @@ export function checkStatus(
     default:
   }
 
-  if (errMessage) {
-    if (errorMessageMode === 'modal' && status !== 403) {
+  if (errMessage && status !== 403) {
+    if (errorMessageMode === 'modal') {
+      console.log('123');
       createErrorModal({ title: '错误提示', content: errMessage });
     } else if (errorMessageMode === 'message') {
       error({ content: errMessage, key: `错误码：${status}` });

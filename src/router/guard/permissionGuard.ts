@@ -30,7 +30,6 @@ export function createPermissionGuard(router: Router) {
     // 动态路由加载（首次）
     if (!permissionStore.getIsDynamicAddedRoute) {
       const routes = await permissionStore.buildRoutesAction();
-      console.log('routes===>', routes);
       [...routes, PAGE_NOT_FOUND_ROUTE].forEach((route) => {
         router.addRoute(route as unknown as RouteRecordRaw);
       });
